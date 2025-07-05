@@ -1,0 +1,221 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+}
+#team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+}
+.card {
+  max-width: 340px;
+  margin: 0 1rem 2rem 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 0 8px rgba(255,255,255,0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.2s;
+}
+.card-header {
+  position: relative;
+  height: 220px;
+  background: #f0f0f0;
+}
+.card-cover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  image-rendering: auto;
+}
+.card-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  z-index: 2;
+  background: #fff;
+}
+.card-fullname {
+  position: absolute;
+  left: 50%;
+  bottom: -70px;
+  transform: translateX(-50%);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #222;
+  margin: 0;
+  z-index: 3;
+}
+.card-jobtitle {
+  position: absolute;
+  left: 50%;
+  bottom: -90px;
+  transform: translateX(-50%);
+  font-size: 0.95rem;
+  color: #888;
+  margin: 0;
+  z-index: 3;
+}
+.card-main {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+.card-section {
+  display: none;
+}
+.card-section.is-active {
+  display: block;
+  animation: fadeIn 0.5s both;
+}
+.card-section[data-section="experience"] {
+  margin-top: 0;
+  padding-top: 0;
+  transition: none;
+}
+@media (max-width: 700px) {
+  #team-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .card {
+    max-width: 98vw;
+    margin: 0 0 1.5rem 0;
+  }
+  .card-header {
+    height: 150px;
+  }
+  .card-avatar {
+    width: 70px;
+    height: 70px;
+    bottom: -30px;
+  }
+  .card-fullname {
+    font-size: 1.1rem;
+    bottom: -50px;
+  }
+  .card-jobtitle {
+    font-size: 0.8rem;
+    bottom: -65px;
+  }
+  .card-main {
+    padding-top: 70px;
+  }
+  .card-section[data-section="experience"] {
+    padding-top: calc(70px + 1.2rem);
+  }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; }
+}
+.card-content {
+  padding: 1.2rem 1.5rem 0.5rem 1.5rem;
+}
+.card-subtitle {
+  font-weight: bold;
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  color: #5674f4;
+}
+.card-desc {
+  color: #555;
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+}
+.card-timeline {
+  margin-top: 1.2rem;
+  position: relative;
+  border-left: 2px solid #e0e0e0;
+  padding-left: 1.2rem;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+}
+.card-item {
+  position: relative;
+  margin-bottom: 1.2rem;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+  overflow: visible;
+  word-break: break-word;
+  padding-left: 2.5rem; /* Add space for year label */
+}
+.card-item:last-child {
+  margin-bottom: 0;
+}
+.card-item:before {
+  content: attr(data-year);
+  position: absolute;
+  left: -2.8rem;
+  top: 0.1rem;
+  font-size: 0.95rem;
+  color: #5674f4;
+  font-weight: bold;
+  min-width: 2.5rem;
+  text-align: right;
+  white-space: nowrap;
+}
+.card-item-title {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+  white-space: normal;
+  word-break: break-word;
+}
+.card-item-desc {
+  font-size: 0.97rem;
+  color: #666;
+  line-height: 1.5;
+}
+.card-buttons {
+  display: flex;
+  background: #f7f7f7;
+  border-top: 1px solid #eee;
+  margin-top: auto;
+}
+.card-buttons button {
+  flex: 1 1 auto;
+  background: none;
+  border: none;
+  padding: 0.9rem 0;
+  font-size: 1rem;
+  color: #5674f4;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-bottom 0.2s;
+}
+.card-buttons button.is-active,
+.card-buttons button:hover {
+  color: #222;
+  border-bottom: 2px solid #5674f4;
+}

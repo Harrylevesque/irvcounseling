@@ -1,0 +1,57 @@
+[
+  {
+    "pictureUrl": "../img/team/jane.jpg",
+    "name": "Jane Doe",
+    "jobTitle": "Lead Counselor",
+    "description": "Jane has 15+ years of experience helping individuals and families.",
+    "experience": [
+      "2010 Counselor at Irvington Counseling Center: Started as a junior counselor, focusing on family therapy.",
+      "2015 Lead Counselor at Irvington Counseling Center: Promoted to lead, overseeing all counseling programs."
+    ]
+  },
+  {
+    "pictureUrl": "../img/team/john.jpg",
+    "name": "John Smith",
+    "jobTitle": "Therapist",
+    "description": "John specializes in adolescent counseling and group therapy.",
+    "experience": [
+      "2012 Therapist at Wellness Center: Worked with teens and young adults."
+    ]
+  },
+  {
+    "pictureUrl": "../img/team/mary.jpg",
+    "name": "Mary Johnson",
+    "jobTitle": "Clinical Social Worker",
+    "description": "Mary has a Master's in Social Work and focuses on community outreach.",
+    "experience": [
+      "2015 Clinical Social Worker at Community Health Services: Engaged in community mental health initiatives."
+    ]
+  },
+  {
+      "pictureUrl": "../img/team/mark.jpg",
+      "name": "Mark Thompson",
+      "jobTitle": "Psychiatrist",
+      "description": "Mark is a board-certified psychiatrist with a focus on medication management.",
+      "experience": [
+        "2016 Psychiatrist at City Mental Health Clinic: Provides medication management and therapy."
+      ]
+  },
+  {
+      "pictureUrl": "../img/team/linda.jpg",
+      "name": "Linda Garcia",
+      "jobTitle": "Counseling Intern",
+      "description": "Linda is a graduate student specializing in counseling psychology.",
+      "experience": [
+        "2021 Counseling Intern at Community Wellness Center: Assists in counseling sessions and community outreach."
+      ]
+  },
+  {
+      "pictureUrl": "../img/team/susan.jpg",
+      "name": "Susan Lee",
+      "jobTitle": "Psychologist",
+      "description": "Susan has a PhD in Clinical Psychology and focuses on cognitive behavioral therapy.",
+      "experience": [
+      "2018 Psychologist at Mindful Therapy: Specializes in CBT and mindfulness techniques."
+      ]
+  }
+]
