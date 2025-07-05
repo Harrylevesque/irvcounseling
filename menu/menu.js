@@ -148,5 +148,10 @@ window.addEventListener('DOMContentLoaded', () => {
   const left = document.querySelector('.split-left');
   const right = document.querySelector('.split-right');
   if (left) left.addEventListener('click', () => fillTriangleOnClick(left, 'left'));
-  if (right) right.addEventListener('click', () => fillTriangleOnClick(right, 'right'));
+  if (right) right.addEventListener('click', () => {
+    fillTriangleOnClick(right, 'right');
+    setTimeout(() => {
+      window.location.href = '../testimonials/index.html';
+    }, 1250); // Wait for animation to finish
+  });
 });
