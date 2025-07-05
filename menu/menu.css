@@ -1,0 +1,75 @@
+body {
+  min-height: 200vh;
+  background: #111;
+  color: #111111;
+  font-family: Arial, sans-serif;
+}
+
+
+.split-section {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  z-index: 3;
+  display: block;
+  pointer-events: none;
+}
+.split-triangle {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  pointer-events: auto;
+  user-select: none;
+  transition: background 0.3s;
+  overflow: hidden;
+  background: #111111 !important;
+  font-family: Impact, Charcoal, sans-serif;
+}
+.split-left {
+  clip-path: polygon(0 0, 0 100%, 100% 100%);
+  background: #111111 !important;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+.split-left > span {
+  position: absolute;
+  left: 25%;
+  bottom: 25%;
+  transform: translate(-50%, 50%);
+  /* Center at the intersection of medians for a right triangle */
+}
+.split-right {
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+  background: #111111 !important;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+.split-right > span {
+  position: absolute;
+  right: 25%;
+  top: 25%;
+  transform: translate(50%, -50%);
+  /* Center at the intersection of medians for a right triangle */
+}
+.split-diagonal {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 2;
+}
+@media (max-width: 600px) {
+  .split-triangle {
+    font-size: 1.2rem;
+  }
+}
