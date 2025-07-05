@@ -1,7 +1,7 @@
 body {
   min-height: 200vh;
-  background: #111;
-  color: #111111;
+  background: #111 !important;
+  color: #111;
   font-family: Arial, sans-serif;
 }
 
@@ -12,6 +12,7 @@ body {
   z-index: 3;
   display: block;
   pointer-events: none;
+  background: #111 !important;
 }
 .split-triangle {
   position: absolute;

@@ -55,6 +55,8 @@ function fillTriangleOnClick(triangleEl, direction) {
   const line = svg.querySelector('line');
   const other = direction === 'left' ? document.querySelector('.split-right') : document.querySelector('.split-left');
   const label = triangleEl.querySelector('span');
+  // Hide the label immediately when animation starts
+  if (label) label.style.opacity = '0';
   const duration = 900;
   const start = performance.now();
   // Initial and final clip-paths
@@ -107,29 +109,32 @@ function fillTriangleOnClick(triangleEl, direction) {
       line.setAttribute('x2', 100);
       line.setAttribute('y2', 100);
     }
-    // Animate label to center
-    label.style.transition = 'left 0.5s, top 0.5s, transform 0.5s, font-size 0.5s';
-    if (progress < 1) {
-      // Move label toward center
+    // Animate label to center (but hidden)
+    if (label) {
       label.style.left = '50%';
       label.style.top = '50%';
       label.style.transform = 'translate(-50%, -50%) scale(' + (1 + 0.5 * progress) + ')';
       label.style.fontSize = 48 + 32 * progress + 'px';
+      label.style.opacity = '0';
+    }
+    if (progress < 1) {
       requestAnimationFrame(step);
     } else {
       // Snap to filled state
       triangleEl.style.clipPath = direction === 'left'
-        ? 'polygon(0% 0%, 0% 100%, 100% 0%, 100% 100%)'
-        : 'polygon(0% 0%, 100% 0%, 0% 100%, 100% 100%)';
+          ? 'polygon(0% 0%, 0% 100%, 100% 0%, 100% 100%)'
+          : 'polygon(0% 0%, 100% 0%, 0% 100%, 100% 100%)';
       if (other) {
         other.style.opacity = 0;
         other.style.pointerEvents = 'none';
       }
-      label.style.left = '50%';
-      label.style.top = '50%';
-      label.style.transform = 'translate(-50%, -50%) scale(1.5)';
-      label.style.fontSize = '80px';
-      // Optionally, trigger navigation or show more content here
+      if (label) {
+        label.style.left = '50%';
+        label.style.top = '50%';
+        label.style.transform = 'translate(-50%, -50%) scale(1.5)';
+        label.style.fontSize = '80px';
+        label.style.opacity = '0';
+      }
       setTimeout(() => {
         // Example: alert or navigate
         // window.location.href = direction === 'left' ? 'left.html' : 'right.html';
