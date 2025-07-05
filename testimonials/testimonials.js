@@ -121,3 +121,23 @@ document.addEventListener('DOMContentLoaded', () => {
     masonryGrid.appendChild(scrollWrapper);
   }
 });
+
+// Allow scroll left to return to menu from testimonials, but not vice versa
+(function() {
+  const isTestimonials = window.location.pathname.includes('/testimonials/index.html');
+  let navigating = false;
+  if (isTestimonials) {
+    window.addEventListener('wheel', (e) => {
+      if (navigating) return;
+      // Only trigger on horizontal scroll left
+      if (e.deltaX < -30) {
+        navigating = true;
+        document.body.style.transition = 'opacity 0.5s';
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+          window.location.href = '../menu/index.html';
+        }, 500);
+      }
+    }, { passive: true });
+  }
+})();

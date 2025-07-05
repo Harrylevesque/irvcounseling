@@ -1,2 +1,192 @@
-/* Contact page styles (currently empty) */
-
+/* Contact page styles - improved layout and structure */
+body {
+  background: #181c24;
+  color: #e0e6ed;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.contact-container {
+  max-width: 700px;
+  margin: 48px auto 0 auto;
+  padding: 0 8px 48px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: stretch;
+}
+.contact-info,
+.contact-form-bg {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+.contact-info {
+  background: #23283a;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  padding: 36px 32px 28px 32px;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  align-items: flex-start;
+}
+.contact-info h2 {
+  color: #3fa7ff;
+  margin-bottom: 8px;
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 2rem;
+}
+.contact-info a, .contact-info span {
+  color: #e0e6ed;
+  text-decoration: none;
+  font-size: 1.08rem;
+  word-break: break-all;
+}
+.contact-info a:hover {
+  color: #3fa7ff;
+  text-decoration: underline;
+}
+.contact-map {
+  width: 100%;
+  height: 180px;
+  border: none;
+  border-radius: 12px;
+  margin-top: 8px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.12);
+}
+.book-btn {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 12px 32px;
+  background: #3fa7ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-family: Impact, Charcoal, sans-serif;
+  cursor: not-allowed;
+  opacity: 0.7;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.book-btn:hover {
+  background: #1c689f;
+}
+.contact-form-bg {
+  background: #23283a;
+  color: #e0e6ed;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  padding: 36px 32px 32px 32px;
+  margin: 0 auto;
+}
+.contact-form-bg .text-center {
+  margin-bottom: 18px;
+}
+.contact-form-bg h1 {
+  color: #3fa7ff;
+  font-size: 2.2rem;
+  margin-bottom: 0.5em;
+}
+.contact-form-bg p {
+  color: #b0c4de;
+  margin-bottom: 1.5em;
+}
+.contact-form-bg form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.form-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 0;
+}
+.form-row > div {
+  flex: 1 1 0;
+}
+@media (max-width: 700px) {
+  .contact-container {
+    max-width: 100%;
+    padding: 0 2vw 32px 2vw;
+  }
+  .contact-info, .contact-form-bg {
+    padding: 24px 8px 18px 8px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+.contact-form-bg label {
+  color: #b0c4de;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+.contact-form-bg input,
+.contact-form-bg textarea {
+  background: #181c24;
+  color: #e0e6ed;
+  border: 2px solid #353b4a;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 1.08rem;
+  margin-bottom: 2px;
+  transition: border 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+.contact-form-bg input:focus,
+.contact-form-bg textarea:focus {
+  border-color: #3fa7ff;
+  outline: none;
+  background: #23283a;
+}
+.contact-form-bg input::placeholder,
+.contact-form-bg textarea::placeholder {
+  color: #7a8599;
+  opacity: 1;
+}
+.contact-form-bg button[type="submit"] {
+  width: 100%;
+  padding: 16px 0;
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.18rem;
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 18px;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);
+}
+.contact-form-bg button[type="submit"]:hover {
+  background: #3fa7ff;
+}
+.contact-form-bg .text-base {
+  color: #b0c4de !important;
+}
+.contact-form-bg .text-green-500 {
+  color: #3fa7ff !important;
+}
+.contact-form-bg .text-red-400 {
+  color: #ff6b6b !important;
+}
+.contact-form-bg .empty-feedback,
+.contact-form-bg .invalid-feedback {
+  color: #ff6b6b;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+  display: none;
+}
+.contact-form-bg .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+  display: block;
+}
+.contact-form-bg .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+  display: block;
+}
+.contact-form-bg .is-invalid,
+.contact-form-bg .was-validated :invalid {
+  border-color: #dc3545;
+}

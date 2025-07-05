@@ -7,8 +7,68 @@
   <link rel="stylesheet" href="contact.css">
 </head>
 <body>
-  <!-- Contact page is intentionally left empty -->
+  <div class="contact-container">
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <span>Email: <a href="mailto:Irvcounseling@aol.com">Irvcounseling@aol.com</a></span>
+      <span>Phone: <a href="tel:+19733993132">+1 973-399-3132</a></span>
+      <span>Address: 21 Wagner Place Irvington NJ, Irvington, NJ, United States</span>
+      <iframe class="contact-map" width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.2345%2C40.7255%2C-74.2300%2C40.7285&amp;layer=mapnik&amp;marker=40.7270%2C-74.2322" style="border: 1px solid black"></iframe><br/>
+      <small><a href="https://www.openstreetmap.org/?mlat=40.7270&amp;mlon=-74.2322#map=18/40.7270/-74.2322" style="color:#3fa7ff;">View Larger Map</a></small>
+      <button class="book-btn" type="button" disabled title="TODO: Implement booking functionality">Book an Appointment (coming soon)</button>
+      <a href="https://www.facebook.com/irvcounseling/" class="facebook-btn" target="_blank" rel="noopener" style="margin-top:16px;display:inline-block;text-decoration:none;">
+        <span style="display:inline-flex;align-items:center;gap:8px;color:#fff;background:#1877f3;padding:10px 22px;border-radius:8px;font-size:1.08rem;font-family:Impact,Charcoal,sans-serif;box-shadow:0 2px 8px 0 rgba(24,119,242,0.18);transition:background 0.2s;">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+          Facebook Page
+        </span>
+      </a>
+    </div>
+    <div class="contact-form-bg">
+      <div class="text-center">
+        <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">Contact Us</h1>
+        <p class="text-gray-400 dark:text-gray-400">Fill up the form below to send us a message.</p>
+      </div>
+      <form action="https://api.web3forms.com/submit" method="POST" id="form" class="needs-validation" novalidate>
+        <div class="form-row">
+          <div style="display: flex; flex-direction: column;">
+            <label for="first_name">First Name</label>
+            <input type="text" name="name" id="first_name" placeholder="John" required />
+            <div class="empty-feedback invalid-feedback">Please provide your first name.</div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <label for="lname">Last Name</label>
+            <input type="text" name="last_name" id="lname" placeholder="Doe" required />
+            <div class="empty-feedback invalid-feedback">Please provide your last name.</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div style="display: flex; flex-direction: column;">
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email" placeholder="you@company.com" required />
+            <div class="empty-feedback">Please provide your email address.</div>
+            <div class="invalid-feedback">Please provide a valid email address.</div>
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <label for="phone">Phone Number</label>
+            <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required />
+            <div class="empty-feedback invalid-feedback">Please provide your phone number.</div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div style="width:100%; display: flex; flex-direction: column;">
+            <label for="message">Your Message</label>
+            <textarea rows="5" name="message" id="message" placeholder="Your Message" required style="width:100%"></textarea>
+            <div class="empty-feedback invalid-feedback">Please enter your message.</div>
+          </div>
+        </div>
+        <button type="submit">Send Message</button>
+        <p class="text-base text-center text-gray-400" id="result"></p>
+        <input type="hidden" name="access_key" value="6f866c68-a6b1-4e0e-a4bb-1ea6163819c5" />
+        <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+        <input type="checkbox" name="botcheck" id="" style="display: none;" />
+      </form>
+    </div>
+  </div>
   <script src="contact.js"></script>
 </body>
 </html>
-

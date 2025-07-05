@@ -23,16 +23,27 @@ window.addEventListener('scroll', () => {
 });
 
 // Enable scroll up to go back from menu to root
+// Enable scroll down at the bottom of the menu page to navigate to the contact page, matching the seamless navigation style.
 if (window.location.pathname.includes('/menu/index.html')) {
   let menuNavigating = false;
   window.addEventListener('wheel', (e) => {
     if (menuNavigating) return;
+    // Scroll up at top: go to root (already implemented)
     if (window.scrollY === 0 && e.deltaY < 0) {
       menuNavigating = true;
       document.body.style.transition = 'opacity 0.5s';
       document.body.style.opacity = '0';
       setTimeout(() => {
         window.location.href = '../index.html';
+      }, 500);
+    }
+    // Scroll down at bottom: go to contact
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && e.deltaY > 0) {
+      menuNavigating = true;
+      document.body.style.transition = 'opacity 0.5s';
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.href = '../contact/index.html';
       }, 500);
     }
   }, { passive: true });
