@@ -7,26 +7,83 @@ function fetchTeamMembers() {
     });
 }
 
-// Nature image pool (same as testimonials.js)
-// const NATURE_IMAGES = [
-//   'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80',
-//   'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80',
-//   'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80',
-//   'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80',
-//   'https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=600&q=80',
-//   'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=600&q=80',
-//   'https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=600&q=80',
-//   'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
-//   // Add more if desired
-// ];
-function getRandomNatureImageUnsplash(seed) {
-  // Use Unsplash random API for a unique image per person and visit
-  // The 'sig' param ensures a different image for each person and visit
-  const rand = Math.floor(Math.random() * 1000000);
-  return `https://source.unsplash.com/800x400/?nature,landscape,forest,water&sig=${encodeURIComponent(seed + '-' + rand)}`;
+// Load image URLs from ../img.txt
+async function fetchTeamImages() {
+  const res = await fetch('../img.txt');
+  if (!res.ok) return [];
+  const text = await res.text();
+  return text.split(/\r?\n/).filter(Boolean);
 }
 
-function createProfileCard(member, idx) {
+async function setTeamBackground() {
+  const res = await fetch('../img.txt');
+  if (!res.ok) return;
+  const text = await res.text();
+  const images = text.split(/\r?\n/).filter(Boolean);
+  if (images.length > 0) {
+    document.body.classList.add('team-bg');
+    document.body.style.backgroundImage = `url('${images[0]}')`;
+  }
+}
+
+async function renderTeam() {
+  await setTeamBackground();
+  const container = document.getElementById('team-container');
+  const [teamMembers, teamImages] = await Promise.all([
+    fetchTeamMembers(),
+    fetchTeamImages()
+  ]);
+  // Shuffle teamImages ONCE per render
+  let shuffledImages = [...teamImages];
+  for (let i = shuffledImages.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledImages[i], shuffledImages[j]] = [shuffledImages[j], shuffledImages[i]];
+  }
+  // Assign each card a unique cover image by index, wrap if not enough images
+  container.innerHTML = teamMembers.map((member, idx) => createProfileCard(member, idx, shuffledImages)).join('');
+  // Tab switching logic for all cards
+  container.querySelectorAll('.card').forEach(card => {
+    const buttons = card.querySelectorAll('.card-buttons button');
+    const sections = card.querySelectorAll('.card-section');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', e => {
+        buttons.forEach(b => b.classList.remove('is-active'));
+        btn.classList.add('is-active');
+        const sectionName = btn.getAttribute('data-section');
+        sections.forEach(sec => {
+          if (sec.getAttribute('data-section') === sectionName) {
+            sec.classList.add('is-active');
+          } else {
+            sec.classList.remove('is-active');
+          }
+        });
+        card.setAttribute('data-state', `#${sectionName}`);
+        if (sectionName !== 'about') {
+          card.classList.add('is-active');
+        } else {
+          card.classList.remove('is-active');
+        }
+      });
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', renderTeam);
+
+function createProfileCard(member, idx, teamImages) {
+  // Avatar: use member.pictureUrl or fallback
+  let avatarUrl = member.pictureUrl || '/img/team/profile.png';
+  // Cover: assign a unique image per card by index, wrap if not enough images
+  let coverUrl = '';
+  if (Array.isArray(teamImages) && teamImages.length > 0) {
+    coverUrl = teamImages[idx % teamImages.length];
+  }
+  let coverDiv = '';
+  if (coverUrl) {
+    coverDiv = `<div class="card-cover" style="background-image:url('${coverUrl}');"></div>`;
+  } else {
+    coverDiv = `<div class="card-cover" style="background:#eaeaea;"></div>`;
+  }
   // About section
   const aboutSection = `
     <div class="card-section is-active" data-section="about">
@@ -59,23 +116,13 @@ function createProfileCard(member, idx) {
     </div>
   `;
   // Card HTML
-  // Use Unsplash nature image, same as testimonials.js, based on index
-  const coverUrl = `https://source.unsplash.com/400x300/?nature,water,forest,landscape,${idx+1}`;
-  // Fix for relative image path
-  let avatarUrl = member.pictureUrl;
-  if (avatarUrl && !/^https?:/.test(avatarUrl)) {
-    // Always use /img/team/ as the base path for avatars (absolute from root)
-    avatarUrl = '/img/team/' + avatarUrl.replace(/^.*[\\\/]/, '');
-  }
-  // Failsafe: if image fails to load, use a random profile avatar
-  // Use a random Unsplash avatar as fallback
-  const fallbackAvatar = `https://source.unsplash.com/100x100/?portrait,face,person,profile&sig=${idx+1}`;
   return `
     <div class="card" data-state="#about">
       <div class="card-header">
-        <div class="card-cover" style="background-image: url('${coverUrl}')"></div>
-        <img class="card-avatar" src="${avatarUrl}" alt="${member.name}" onerror=\"this.onerror=null;this.src='${fallbackAvatar}'\" />
+        ${coverDiv}
+        <img class="card-avatar" src="${avatarUrl}" alt="${member.name}" onerror=\"this.onerror=null;this.src='/img/team/profile.png'\" />
         <h1 class="card-fullname">${member.name}</h1>
+        <hr class="card-divider" />
         <h2 class="card-jobtitle">${member.jobTitle}</h2>
       </div>
       <div class="card-main">
@@ -89,35 +136,3 @@ function createProfileCard(member, idx) {
     </div>
   `;
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-  const container = document.getElementById('team-container');
-  fetchTeamMembers().then(teamMembers => {
-    container.innerHTML = teamMembers.map((member, idx) => createProfileCard(member, idx)).join('');
-    // Tab switching logic for all cards
-    container.querySelectorAll('.card').forEach(card => {
-      const buttons = card.querySelectorAll('.card-buttons button');
-      const sections = card.querySelectorAll('.card-section');
-      buttons.forEach(btn => {
-        btn.addEventListener('click', e => {
-          buttons.forEach(b => b.classList.remove('is-active'));
-          btn.classList.add('is-active');
-          const sectionName = btn.getAttribute('data-section');
-          sections.forEach(sec => {
-            if (sec.getAttribute('data-section') === sectionName) {
-              sec.classList.add('is-active');
-            } else {
-              sec.classList.remove('is-active');
-            }
-          });
-          card.setAttribute('data-state', `#${sectionName}`);
-          if (sectionName !== 'about') {
-            card.classList.add('is-active');
-          } else {
-            card.classList.remove('is-active');
-          }
-        });
-      });
-    });
-  });
-});

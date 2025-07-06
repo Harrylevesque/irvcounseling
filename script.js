@@ -1,8 +1,11 @@
 // Rotating text options
 const options = [
-  'Individual Counseling',
+  'One On One Therapy',
   'Family Therapy',
-  'Career Guidance and Support'
+  'Couples/Marriage Counseling',
+  'Anger Management',
+  'Greif Counseling',
+  'Other Mental Health Counseling',
 ];
 let current = 0;
 const rotatingText = document.getElementById('rotatingText');

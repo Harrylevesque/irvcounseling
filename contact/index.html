@@ -8,20 +8,38 @@
 </head>
 <body>
   <div class="contact-container">
-    <div class="contact-info">
-      <h2>Contact Information</h2>
-      <span>Email: <a href="mailto:Irvcounseling@aol.com">Irvcounseling@aol.com</a></span>
-      <span>Phone: <a href="tel:+19733993132">+1 973-399-3132</a></span>
-      <span>Address: 21 Wagner Place Irvington NJ, Irvington, NJ, United States</span>
-      <iframe class="contact-map" width="425" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.2345%2C40.7255%2C-74.2300%2C40.7285&amp;layer=mapnik&amp;marker=40.7270%2C-74.2322" style="border: 1px solid black"></iframe><br/>
-      <small><a href="https://www.openstreetmap.org/?mlat=40.7270&amp;mlon=-74.2322#map=18/40.7270/-74.2322" style="color:#3fa7ff;">View Larger Map</a></small>
-      <button class="book-btn" type="button" disabled title="TODO: Implement booking functionality">Book an Appointment (coming soon)</button>
-      <a href="https://www.facebook.com/irvcounseling/" class="facebook-btn" target="_blank" rel="noopener" style="margin-top:16px;display:inline-block;text-decoration:none;">
-        <span style="display:inline-flex;align-items:center;gap:8px;color:#fff;background:#1877f3;padding:10px 22px;border-radius:8px;font-size:1.08rem;font-family:Impact,Charcoal,sans-serif;box-shadow:0 2px 8px 0 rgba(24,119,242,0.18);transition:background 0.2s;">
-          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
-          Facebook Page
-        </span>
-      </a>
+    <div class="contact-columns">
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <div class="contact-details">
+          <span><strong>Email:</strong> <a href="mailto:Irvcounseling@aol.com">Irvcounseling@aol.com</a></span><hr class="invisible">
+          <span><strong>Phone:</strong> <a href="tel:+19733993132">+1 973-399-3132</a></span><hr class="invisible">
+          <span><strong>Address:</strong> 21 Wagner Place Irvington NJ, Irvington, NJ, United States</span><hr class="invisible">
+        </div>
+        <div class="contact-hours">
+          <strong>Hours:</strong><br>
+          <span>Mon: 9AM - 6PM</span><br>
+          <span>Tues: 9AM - 5PM</span><br>
+          <span>Wed: 9AM - 8PM</span><br>
+          <span>Thurs: 9AM - 7PM</span><br>
+          <span>Fri: 9AM - 3PM</span><br>
+          <span>Sat &amp; Sun: Closed</span>
+        </div>
+        <div class="contact-actions">
+          <button class="book-btn, invisible" type="button" disabled title="TODO: Implement booking functionality">Book an Appointment (coming soon)</button>
+          <hr class="invisible">
+          <a href="https://www.facebook.com/irvcounseling/" class="facebook-btn" target="_blank" rel="noopener">
+            <span>
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24" style="vertical-align:middle;"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+              Facebook Page
+            </span>
+          </a>
+        </div>
+        <div class="contact-map-wrapper">
+          <iframe class="contact-map" src="https://www.openstreetmap.org/export/embed.html?bbox=-74.2345%2C40.7255%2C-74.2300%2C40.7285&amp;layer=mapnik&amp;marker=40.7270%2C-74.2322" style="border: 1px solid black"></iframe><br/>
+          <small><a href="https://www.openstreetmap.org/?mlat=40.7270&amp;mlon=-74.2322#map=18/40.7270/-74.2322" style="color:#3fa7ff;">View Larger Map</a></small>
+        </div>
+      </div>
     </div>
     <div class="contact-form-bg">
       <div class="text-center">

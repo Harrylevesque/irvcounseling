@@ -1,11 +1,9 @@
 @import url('../style.css');
 
 body {
-  background: #111;
-  color: #fff;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  background: #181c24 !important;
+  color: #e0e6ed !important;
+  font-family: Arial, sans-serif !important;
 }
 h1 {
   text-align: center;
@@ -92,8 +90,8 @@ h1 {
   z-index: 2;
 }
 .mission-left h1 {
-  color: #1c689f;
-  font-family: Impact, Charcoal, sans-serif;
+  color: #3fa7ff !important;
+  font-family: Impact, Charcoal, sans-serif !important;
   font-size: 2.5rem;
   margin-bottom: 24px;
 }
@@ -138,9 +136,10 @@ h1 {
   margin-left: 0;
 }
 .masonry-item {
-  background: #23283a;
-  border-radius: 18px;
-  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18);
+  background: #23283a !important;
+  color: #e0e6ed !important;
+  border-radius: 18px !important;
+  box-shadow: 0 4px 24px 0 rgba(0,0,0,0.18) !important;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -162,9 +161,9 @@ h1 {
 .masonry-quote {
   padding: 18px 16px 14px 16px;
   font-size: 1.08rem;
-  color: #3fa7ff;
+  color: #3fa7ff !important;
   font-style: italic;
-  font-family: Arial, sans-serif;
+  font-family: Impact, Charcoal, sans-serif !important;
   background: rgba(24,28,36,0.92);
   border-radius: 0 0 18px 18px;
   flex: 1;
