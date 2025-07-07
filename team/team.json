@@ -12,39 +12,6 @@
     "pictureUrl": "../img/team/1.jpeg"
   },
   {
-    "name": "Tracey Orner",
-    "jobTitle": "Administrative Assistant / Billing Manager",
-    "description": "Tracey Orner is the Administrative Assistant and Billing Manager at Irvington Counseling Center. She holds a BA in Business Management from Rutgers, NCAS. Tracey has decades of experience in business management, payroll, and billing, including 29 years with the Township of Irvington. She is dedicated to giving back to the Irvington community and finds fulfillment in supporting an organization that helps so many people.",
-    "experience": [
-      "Administrative Assistant/Billing Manager at Irvington Counseling Center since 2011.",
-      "Payroll Supervisor for the Township of Irvington for 29 years.",
-      "BA in Business Management from Rutgers, NCAS."
-    ],
-    "pictureUrl": "../img/team/2.jpeg"
-  },
-  {
-    "name": "Rhona Duncan",
-    "jobTitle": "Receptionist",
-    "description": "Rhona Duncan has been the Front Desk Receptionist at Irvington Counseling Center for 9 years. She is highly experienced in customer service and administrative support, and is known for her reliability and dedication as a team player.",
-    "experience": [
-      "Receptionist at Irvington Counseling Center for 9 years.",
-      "Experienced in customer service and administrative support.",
-      "Dedicated and reliable team player."
-    ],
-    "pictureUrl": "../img/team/3.jpeg"
-  },
-  {
-    "name": "Andrew Singh",
-    "jobTitle": "Office Assistant",
-    "description": "Andrew Singh is the Office Assistant at Irvington Counseling Center. He holds a Bachelor's and Master's in Business Administration from Saint Peter's University. Andrew began as a receptionist in 2021 and now assists with office operations. He enjoys connecting with the community and helping people reach their goals.",
-    "experience": [
-      "Office Assistant at Irvington Counseling Center since 2021.",
-      "Receptionist at Irvington Counseling Center.",
-      "Bachelor's and Master's in Business Administration from Saint Peter's University."
-    ],
-    "pictureUrl": "../img/team/4.jpeg"
-  },
-  {
     "name": "Adara Kimbrough",
     "jobTitle": "Senior Staff Clinician / Licensed Social Worker",
     "description": "Adara Kimbrough is a Licensed Social Worker and Senior Staff Clinician at Irvington Counseling Center. She is a compassionate therapist committed to helping clients improve their mental health through CBT and mindfulness techniques. Adara supports clients facing depression, anxiety, and stress, and is dedicated to providing a supportive and empathetic environment.",
@@ -133,5 +100,38 @@
       "Advocates for patients with compassion and holistic care."
     ],
     "pictureUrl": "../img/team/12.png"
+  },
+  {
+    "name": "Tracey Orner",
+    "jobTitle": "Administrative Assistant / Billing Manager",
+    "description": "Tracey Orner is the Administrative Assistant and Billing Manager at Irvington Counseling Center. She holds a BA in Business Management from Rutgers, NCAS. Tracey has decades of experience in business management, payroll, and billing, including 29 years with the Township of Irvington. She is dedicated to giving back to the Irvington community and finds fulfillment in supporting an organization that helps so many people.",
+    "experience": [
+      "Administrative Assistant/Billing Manager at Irvington Counseling Center since 2011.",
+      "Payroll Supervisor for the Township of Irvington for 29 years.",
+      "BA in Business Management from Rutgers, NCAS."
+    ],
+    "pictureUrl": "../img/team/2.jpeg"
+  },
+  {
+    "name": "Rhona Duncan",
+    "jobTitle": "Receptionist",
+    "description": "Rhona Duncan has been the Front Desk Receptionist at Irvington Counseling Center for 9 years. She is highly experienced in customer service and administrative support, and is known for her reliability and dedication as a team player.",
+    "experience": [
+      "Receptionist at Irvington Counseling Center for 9 years.",
+      "Experienced in customer service and administrative support.",
+      "Dedicated and reliable team player."
+    ],
+    "pictureUrl": "../img/team/3.jpeg"
+  },
+  {
+    "name": "Andrew Singh",
+    "jobTitle": "Office Assistant",
+    "description": "Andrew Singh is the Office Assistant at Irvington Counseling Center. He holds a Bachelor's and Master's in Business Administration from Saint Peter's University. Andrew began as a receptionist in 2021 and now assists with office operations. He enjoys connecting with the community and helping people reach their goals.",
+    "experience": [
+      "Office Assistant at Irvington Counseling Center since 2021.",
+      "Receptionist at Irvington Counseling Center.",
+      "Bachelor's and Master's in Business Administration from Saint Peter's University."
+    ],
+    "pictureUrl": "../img/team/4.jpeg"
   }
 ]

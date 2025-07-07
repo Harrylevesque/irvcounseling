@@ -19,16 +19,16 @@ h1 {
   font-family: Impact, Charcoal, sans-serif;
 }
 #team-container {
-  column-count: 3;
-  column-gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
   max-width: 1200px;
   margin: 2rem auto;
   width: 100%;
 }
 .card {
-  display: block;
-  break-inside: avoid;
-  width: 100%;
+  flex: 1 1 320px;
   max-width: 340px;
   margin: 0 0 2rem 0;
   background: #23283a;
@@ -130,15 +130,19 @@ h1 {
 }
 @media (max-width: 1000px) {
   #team-container {
-    column-count: 2;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
   }
 }
 @media (max-width: 700px) {
   #team-container {
-    column-count: 1;
     max-width: 98vw;
     margin: 0 0 1.5rem 0;
     padding: 0 1vw;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
   .card {
     max-width: 100%;
@@ -236,4 +240,3 @@ h1 {
   color: #e0e6ed;
   border-bottom: 2px solid #3fa7ff;
 }
-

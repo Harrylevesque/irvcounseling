@@ -66,6 +66,7 @@
   const isContact = window.location.pathname.includes('/contact/index.html');
   let navigating = false;
   if (isContact) {
+    // Scroll up at top to menu (already present)
     window.addEventListener('wheel', (e) => {
       if (navigating) return;
       if (window.scrollY === 0 && e.deltaY < 0) {
@@ -77,5 +78,47 @@
         }, 500);
       }
     }, { passive: true });
+
+    // Scroll down at bottom to legal
+    window.addEventListener('wheel', (e) => {
+      if (navigating) return;
+      const atBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 2;
+      if (atBottom && e.deltaY > 30) {
+        navigating = true;
+        document.body.style.transition = 'opacity 0.5s';
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+          window.location.href = '../legal/index.html';
+        }, 500);
+      }
+    }, { passive: true });
+
+    // Fade in on page load
+    document.body.style.opacity = '0';
+    document.body.style.transition = 'opacity 0.5s';
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.body.style.opacity = '1';
+      }, 10);
+    });
   }
 })();
+
+// Smooth navigation to legal page
+function seamlessNavigateLegal() {
+  document.body.style.transition = 'opacity 0.5s';
+  document.body.style.opacity = '0';
+  setTimeout(function() {
+    window.location.href = '../legal/index.html';
+  }, 500);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var legalBtn = document.getElementById('legal-nav');
+  if (legalBtn) {
+    legalBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      seamlessNavigateLegal();
+    });
+  }
+});

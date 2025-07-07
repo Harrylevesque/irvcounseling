@@ -7,10 +7,180 @@
   <link rel="stylesheet" href="menu.css">
 </head>
 <body>
+
+
+<div>
+  <meta charset="UTF-8">
+  <style>
+    /* Hamburger Menu Styles */
+    .hamburger-btn {
+      position: fixed;
+      top: 18px;
+      left: 18px;
+      z-index: 1001;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      outline: none;
+    }
+    .hamburger-btn img {
+      display: block;
+      width: 120px;
+      height: 120px;
+    }
+    .hamburger-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 260px;
+      height: 100vh;
+      background: #23283a;
+      box-shadow: 2px 0 16px rgba(0,0,0,0.25);
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+      z-index: 1002;
+      display: flex;
+      flex-direction: column;
+      padding-top: 32px;
+    }
+    .hamburger-menu.open {
+      transform: translateX(0);
+    }
+    .close-menu-btn {
+      background: none;
+      border: none;
+      color: #e0e6ed;
+      font-size: 2rem;
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      cursor: pointer;
+      z-index: 1003;
+    }
+    .menu-list {
+      list-style: none;
+      padding: 0;
+      margin: 48px 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .menu-list li a {
+      color: #e0e6ed;
+      text-decoration: none;
+      font-size: 1.18rem;
+      display: flex;
+      align-items: center;
+      padding: 10px 24px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .menu-list li a:hover, .menu-list li a:focus {
+      background: #2d3350;
+    }
+    .menu-icon {
+      margin-right: 14px;
+      font-size: 1.4em;
+      display: flex;
+      align-items: center;
+    }
+    @media (max-width: 600px) {
+      .hero-img-anim {
+        width: 120px;
+        height: 120px;
+      }
+      .hero img { width: 120px; height: 120px; }
+      .hero-text, .rotating { font-size: 1.3rem; }
+      .specializing-section {
+        flex-direction: column;
+        gap: 8px;
+      }
+      .rotating {
+        padding: 0.2em 0.7em;
+        gap: 8px;
+      }
+      .specializing-text { font-size: 1.1rem; }
+      #rotatingImg {
+        width: 1.3em;
+        height: 1.3em;
+        margin-right: 0.4em;
+      }
+      .hamburger-menu {
+        width: 80vw;
+        min-width: 180px;
+        max-width: 320px;
+      }
+    }
+  </style>
+
+  <script>
+    // Hamburger Menu Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const hamburgerMenu = document.getElementById('hamburgerMenu');
+      const closeMenuBtn = document.getElementById('closeMenuBtn');
+
+      hamburgerBtn.addEventListener('click', function() {
+        hamburgerMenu.classList.toggle('open');
+        hamburgerMenu.focus();
+      });
+
+      closeMenuBtn.addEventListener('click', function() {
+        hamburgerMenu.classList.remove('open');
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (!hamburgerMenu.contains(event.target) && !hamburgerBtn.contains(event.target)) {
+          hamburgerMenu.classList.remove('open');
+        }
+      });
+    });
+  </script>
+
+  <!-- Hamburger Menu Button -->
+  <button id="hamburgerBtn" class="hamburger-btn" aria-label="Open menu">
+    <img src="../img/lp.svg" alt="Menu" />
+  </button>
+  <!-- Hamburger Menu Overlay -->
+  <nav id="hamburgerMenu" class="hamburger-menu" aria-label="Main menu" tabindex="-1">
+    <button id="closeMenuBtn" class="close-menu-btn" aria-label="Close menu">&times;</button>
+    <ul class="menu-list">
+      <li><a href="../index.html"><span class="menu-icon">🏠</span> Home</a></li>
+      <li><a href="../team/index.html"><span class="menu-icon">👥</span> Team</a></li>
+      <li><a href="../contact/index.html"><span class="menu-icon">✉️</span> Contact</a></li>
+      <li><a href="../legal/index.html"><span class="menu-icon">⚖️</span> Legal</a></li>
+      <li><a href="../menu/index.html"><span class="menu-icon">📋</span> Menu</a></li>
+      <li><a href="../read/index.html"><span class="menu-icon">📖</span> Read</a></li>
+      <li><a href="../testimonials/index.html"><span class="menu-icon">💬</span> Testimonials</a></li>
+    </ul>
+  </nav>
+</div>
+
+
   <main class="info-main">
     <section class="info-hero">
       <h1>Welcome to Irvington Counseling Center</h1>
       <p class="info-lead">We are dedicated to providing compassionate, accessible, and effective mental health care for individuals and families in our community. Learn more about our mission and the people who make it possible.</p>
+    </section>
+    <section class="info-about">
+      <h2>About Us</h2>
+      <p>
+        The Irvington Counseling Center offers therapeutic clinical & psychiatric services to the community. Our staff are professionally trained in specialty areas of counseling to address various mental health needs in our community. There is collaboration among local agencies, schools, hospitals, courts, & the township of Irvington to promote a healthy and safe space to talk about mental health.
+        <br>
+        (<a href="../read/index.html#mission" class="about-link">Read about our mission</a>)
+      </p>
+      <p>
+        We strive to help our patients lead a happier life and remind them that they are not alone in their journey to mental wellness. Here at ICC, our goal is to ensure that each patient receives optimal care regardless of their circumstances.
+        <br>
+        (<a href="../read/index.html#therapy" class="about-link">Read about Mental Health and Therapy</a>)
+      </p>
+      <p>
+        <span style="font-weight:600; color:#3fa7ff;">Psychiatric Services:</span> We offer psychiatric evaluations and medication monitoring. Our APNs are equipped to give you further treatment if counseling does not help to alleviate your symptoms.
+        <br>
+        (<a href="../read/index.html#psychiatric" class="about-link">Read about Psychiatric Services</a>)
+      </p>
     </section>
     <section class="info-links">
       <a href="../team/index.html" class="info-link-card">

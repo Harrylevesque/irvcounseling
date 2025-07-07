@@ -1,12 +1,5 @@
 // Rotating text options
-const options = [
-  'One On One Therapy',
-  'Family Therapy',
-  'Couples/Marriage Counseling',
-  'Anger Management',
-  'Greif Counseling',
-  'Other Mental Health Counseling',
-];
+const options = ['One On One Therapy', 'Family Therapy', 'Couples/Marriage Counseling', 'Anger Management', 'Greif Counseling', 'Other Mental Health Counseling', ];
 let current = 0;
 const rotatingText = document.getElementById('rotatingText');
 const rotatingLabel = document.getElementById('rotatingLabel');
@@ -26,7 +19,8 @@ function typeText(text, element, callback) {
     if (i < text.length) {
       element.textContent += text.charAt(i);
       i++;
-      setTimeout(typeChar, 25); // typing speed in ms
+      setTimeout(typeChar, 25);
+      // typing speed in ms
     } else if (callback) {
       callback();
     }
@@ -62,10 +56,11 @@ function zoomOutFromRotatingBox() {
   specializing.style.transition = 'transform 0.8s cubic-bezier(.4,2,.6,1), opacity 0.7s';
   specializing.style.transform = `translate(0, 0) scale(1)`;
   specializing.style.opacity = '1';
-  setTimeout(() => {
-    specializing.style.transform = `translate(0, 0) scale(0.2)`;
-    specializing.style.opacity = '0';
-  }, 10);
+  setTimeout( () => {
+        specializing.style.transform = `translate(0, 0) scale(0.2)`;
+        specializing.style.opacity = '0';
+      }
+      , 10);
 }
 
 function resetZoom() {
@@ -77,13 +72,15 @@ function resetZoom() {
 }
 
 function seamlessNavigate(url) {
-  if (navigating) return;
+  if (navigating)
+    return;
   navigating = true;
   document.body.style.transition = 'opacity 0.5s';
   document.body.style.opacity = '0';
-  setTimeout(() => {
-    window.location.href = url;
-  }, 500);
+  setTimeout( () => {
+        window.location.href = url;
+      }
+      , 500);
 }
 
 let imageHideThreshold = 0.1;
@@ -91,47 +88,59 @@ let menuNavigateThreshold = 0.6;
 let lockThreshold = 0.25;
 
 window.addEventListener('scroll', () => {
-  if (navigating) return;
-  const scrollY = window.scrollY;
-  const vh = window.innerHeight;
-  if (scrollY > vh * imageHideThreshold) {
-    animImg.style.opacity = '0';
-    specializing.classList.add('visible');
-    continueBtn.style.display = 'block';
-  } else {
-    animImg.style.opacity = '1';
-    specializing.classList.remove('visible');
-    continueBtn.style.display = 'none';
-  }
-});
+      if (navigating)
+        return;
+      const scrollY = window.scrollY;
+      const vh = window.innerHeight;
+      if (scrollY > vh * imageHideThreshold) {
+        animImg.style.opacity = '0';
+        specializing.classList.add('visible');
+        continueBtn.style.display = 'block';
+      } else {
+        animImg.style.opacity = '1';
+        specializing.classList.remove('visible');
+        continueBtn.style.display = 'none';
+      }
+    }
+);
 
 continueBtn.addEventListener('click', () => {
-  // Animate scroll to menuNavigateThreshold, then trigger the menu transition
-  const vh = window.innerHeight;
-  window.scrollTo({ top: vh * menuNavigateThreshold, behavior: 'smooth' });
-  setTimeout(() => {
-    zoomOutFromRotatingBox();
-    setTimeout(() => {
-      seamlessNavigate('menu/index.html');
-      zoomed = true;
-    }, 800);
-  }, 600); // Wait for scroll animation
-});
+      // Animate scroll to menuNavigateThreshold, then trigger the menu transition
+      const vh = window.innerHeight;
+      window.scrollTo({
+        top: vh * menuNavigateThreshold,
+        behavior: 'smooth'
+      });
+      setTimeout( () => {
+            zoomOutFromRotatingBox();
+            setTimeout( () => {
+                  seamlessNavigate('menu/index.html');
+                  zoomed = true;
+                }
+                , 800);
+          }
+          , 600);
+      // Wait for scroll animation
+    }
+);
 
 // Also allow click on rotating text to navigate
 rotatingText.addEventListener('click', () => {
-  if (!zoomed && !navigating) {
-    zoomOutFromRotatingBox();
-    setTimeout(() => {
-      seamlessNavigate('menu/index.html');
-      zoomed = true;
-    }, 800);
-  }
-});
+      if (!zoomed && !navigating) {
+        zoomOutFromRotatingBox();
+        setTimeout( () => {
+              seamlessNavigate('menu/index.html');
+              zoomed = true;
+            }
+            , 800);
+      }
+    }
+);
 
 // Listen for back navigation from menu
 window.addEventListener('popstate', () => {
-  navigating = false;
-  document.body.style.transition = 'opacity 0.5s';
-  document.body.style.opacity = '1';
-});
+      navigating = false;
+      document.body.style.transition = 'opacity 0.5s';
+      document.body.style.opacity = '1';
+    }
+);
